@@ -87,6 +87,12 @@ chmod +x "$build_dir"/yuzu.sh
 # Set perms
 "$build_dir"/arch.fim fim-perms-set wayland,x11,pulseaudio,gpu,session_bus,input,usb
 
+# Set up /usr overlay
+"$build_dir"/arch.fim fim-config-set overlay.usr "/usr overlay"
+#shellcheck disable=2016
+"$build_dir"/arch.fim fim-config-set overlay.usr.host '"$FIM_DIR_BINARY"/."$FIM_FILE_BINARY.config/overlays/usr"'
+"$build_dir"/arch.fim fim-config-set overlay.usr.cont '/usr'
+
 # Rename
 mv "$build_dir/arch.fim" yuzu-arch.fim
 

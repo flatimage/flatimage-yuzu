@@ -78,10 +78,11 @@ export LD_LIBRARY_PATH="/yuzu/lib:$LD_LIBRARY_PATH"
 /yuzu/bin/yuzu "$@"
 EOL
 chmod +x "$build_dir"/yuzu.sh
-"$build_dir"/arch.fim fim-root cp "$build_dir"/yuzu.sh /fim/yuzu.sh
+"$build_dir"/arch.fim fim-root mkdir -p /fim/scripts
+"$build_dir"/arch.fim fim-root cp "$build_dir"/yuzu.sh /fim/scripts/yuzu.sh
 
 # Set default command
-"$build_dir"/arch.fim fim-cmd /fim/yuzu.sh
+"$build_dir"/arch.fim fim-cmd /fim/scripts/yuzu.sh
 
 # Set perms
 "$build_dir"/arch.fim fim-perms-set wayland,x11,pulseaudio,gpu,session_bus,input,usb

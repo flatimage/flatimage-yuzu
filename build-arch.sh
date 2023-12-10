@@ -60,6 +60,10 @@ export FIM_COMPRESSION_LEVEL=6
   glxinfo pcre xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon \
   xf86-video-intel vulkan-intel lib32-vulkan-intel vulkan-tools --noconfirm
 
+# Gameimage dependencies
+"$build_dir"/arch.fim fim-root fakechroot pacman -S libappindicator-gtk3 \
+  lib32-libappindicator-gtk3 --noconfirm
+
 # Compress main image
 "$build_dir"/arch.fim fim-compress
 
